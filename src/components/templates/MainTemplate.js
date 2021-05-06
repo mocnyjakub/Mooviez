@@ -5,11 +5,10 @@ import { mainTheme } from "../../styles/theme";
 import Nav from "../organisms/Nav";
 
 const Layout = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 200px 1fr;
   overflow-x: hidden;
-  /* overflow-y: scroll; */
 `;
 
 const MainTemplate = ({ children }) => {

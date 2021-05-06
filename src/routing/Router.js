@@ -7,7 +7,7 @@ import { paths } from "../paths";
 
 const HomeWrapper = styled.div`
   grid-column: 2/3;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   align-items: center;
   justify-content: center;
