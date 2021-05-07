@@ -8,9 +8,14 @@ import { paths } from "../paths";
 const HomeWrapper = styled.div`
   grid-column: 2/3;
   min-height: 100vh;
-  display: grid;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  margin: 100px 50px 0;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Router = () => {
