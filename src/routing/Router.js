@@ -16,6 +16,9 @@ const HomeWrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  @media (max-width: 500px) {
+    margin: 0;
+  }
 `;
 
 const Router = () => {

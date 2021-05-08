@@ -40,8 +40,13 @@ const Row = ({ title, fetchUrl }) => {
     } else {
       movieTrailer(title || "")
         .then((url) => {
+          console.log(url);
+          console.log(new URL(url));
+          console.log(new URL(url).search);
           const urlParams = new URLSearchParams(new URL(url).search);
+          console.log(urlParams);
           const youtubeLinkId = urlParams.get("v");
+          console.log(youtubeLinkId);
           setTrailerUrl(youtubeLinkId);
         })
         .catch((error) => console.log(error));

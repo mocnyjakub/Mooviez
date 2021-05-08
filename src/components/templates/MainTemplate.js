@@ -9,6 +9,11 @@ const Layout = styled.div`
   display: grid;
   grid-template-columns: 200px 1fr;
   overflow-x: hidden;
+
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const MainTemplate = ({ children }) => {

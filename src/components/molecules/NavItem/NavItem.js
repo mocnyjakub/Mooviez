@@ -1,14 +1,14 @@
-import React from "react";
-import { Wrapper, StyledLink, Icon } from "./StyledNavItem";
+import React, { useState } from "react";
+import { Wrapper, StyledLink, Icon, TextWrapper } from "./StyledNavItem";
 
 const NavItem = ({ description, linkTo, icon, exact }) => {
   return (
     <Wrapper>
-      <Icon>
-        <img src={icon} alt="" />
-      </Icon>
       <StyledLink exact to={linkTo}>
-        {description}
+        <Icon>
+          <img src={icon} alt="" />
+        </Icon>
+        <TextWrapper>{description}</TextWrapper>
       </StyledLink>
     </Wrapper>
   );

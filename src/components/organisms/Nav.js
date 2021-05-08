@@ -14,6 +14,16 @@ const Wrapper = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow.navBar};
   overflow-x: hidden;
 
+  @media (max-width: 500px) {
+    min-height: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: white;
+  }
+
   &:after {
     content: "";
     display: block;
