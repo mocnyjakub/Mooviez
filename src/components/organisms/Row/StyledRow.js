@@ -48,18 +48,19 @@ export const RowWrapper = styled.div`
   }
   .row__contain {
     display: flex;
-    padding: 10px 0;
+    width: ${({ headerStyle }) => (headerStyle ? "100%" : "auto")};
+    padding: ${({ headerStyle }) => (headerStyle ? "0" : "10px 0")};
   }
 `;
 
 export const ImageWrapper = styled.div`
-  width: 180px;
-  height: 250px;
+  width: ${({ headerStyle }) => (headerStyle ? "100%" : "180px")};
+  height: ${({ headerStyle }) => (headerStyle ? "400px" : "250px")};
   /* display: flex;
   flex-direction: column;
   justify-content: space-between; */
   align-items: center;
-  margin-right: 1rem;
+  margin-right: ${({ headerStyle }) => (headerStyle ? "0" : "1rem")};
   background-image: url(${({ poster_path }) => `${imgUrl}${poster_path}`});
   background-size: cover;
   background-repeat: no-repeat;
@@ -67,7 +68,7 @@ export const ImageWrapper = styled.div`
   transition: transform 450ms;
   position: relative;
   &:hover {
-    transform: scale(1.08);
+    ${({ headerStyle }) => (headerStyle ? null : "transform:scale(1.08);")};
   }
   &::before {
     content: "";

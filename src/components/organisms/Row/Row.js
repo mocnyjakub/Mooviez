@@ -10,7 +10,7 @@ import TrailerButton from "../../atoms/TrailerButton/TrailerButton";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
 
-const Row = ({ title, fetchUrl }) => {
+const Row = ({ title, fetchUrl, headerStyle }) => {
   const [movies, setMovies] = useState([]);
   const [trailerURL, setTrailerUrl] = useState("");
   const ref = useRef(null);
@@ -19,7 +19,15 @@ const Row = ({ title, fetchUrl }) => {
       const request = await axios
         .get(fetchUrl)
         .catch((error) => console.log(error));
-      setMovies(request.data.results);
+      const MoviesFetchArray = request.data.results;
+      console.log(MoviesFetchArray);
+      headerStyle
+        ? setMovies([
+            MoviesFetchArray[
+              Math.floor(Math.random() * MoviesFetchArray.length)
+            ],
+          ])
+        : setMovies(MoviesFetchArray);
     };
     fetchData();
   }, [fetchUrl]);
@@ -54,17 +62,24 @@ const Row = ({ title, fetchUrl }) => {
   };
   return (
     <>
-      <TitleWrapper>
-        <h2>{title}</h2>
-        <div className="row__buttons">
-          <button onClick={() => scroll(-200)}>{"<"}</button>
-          <button onClick={() => scroll(200)}>{">"}</button>
-        </div>
-      </TitleWrapper>
-      <RowWrapper ref={ref}>
+      {headerStyle ? null : (
+        <TitleWrapper>
+          <h2>{title}</h2>
+          <div className="row__buttons">
+            <button onClick={() => scroll(-200)}>{"<"}</button>
+            <button onClick={() => scroll(200)}>{">"}</button>
+          </div>
+        </TitleWrapper>
+      )}
+
+      <RowWrapper ref={ref} headerStyle={headerStyle}>
         <div className="row__contain">
           {movies.map(({ poster_path, id, title }) => (
-            <ImageWrapper key={id} poster_path={poster_path}>
+            <ImageWrapper
+              key={id}
+              poster_path={poster_path}
+              headerStyle={headerStyle}
+            >
               <TrailerButton
                 text="Watch Now"
                 showTrailer={showTrailer}
