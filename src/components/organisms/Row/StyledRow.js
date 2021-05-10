@@ -75,7 +75,7 @@ export const ImageWrapper = styled.div`
     display: block;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   &::after {
@@ -94,6 +94,19 @@ export const ImageWrapper = styled.div`
     cursor: pointer;
     backdrop-filter: blur(5px);
     background-color: rgba(60, 60, 60, 0.6);
+  }
+
+  .image__header {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    color: #fff;
+    left: 0;
+    padding-left: 40px;
+    h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
   }
 `;
 export const CloseButton = styled.button`

@@ -74,18 +74,27 @@ const Row = ({ title, fetchUrl, headerStyle }) => {
 
       <RowWrapper ref={ref} headerStyle={headerStyle}>
         <div className="row__contain">
-          {movies.map(({ poster_path, id, title }) => (
-            <ImageWrapper
-              key={id}
-              poster_path={poster_path}
-              headerStyle={headerStyle}
-            >
-              <TrailerButton
-                text="Watch Now"
-                showTrailer={showTrailer}
-                title={title}
-              />
-            </ImageWrapper>
+          {movies.map(({ poster_path, id, title, release_date }) => (
+            <>
+              <ImageWrapper
+                key={id}
+                poster_path={poster_path}
+                headerStyle={headerStyle}
+              >
+                {headerStyle ? (
+                  <div className="image__header">
+                    <h1>{title}</h1>
+                    <h2>Realesed on</h2>
+                    <h3>{release_date}</h3>
+                  </div>
+                ) : null}
+                <TrailerButton
+                  text="Watch Now"
+                  showTrailer={showTrailer}
+                  title={title}
+                />
+              </ImageWrapper>
+            </>
           ))}
         </div>
       </RowWrapper>
